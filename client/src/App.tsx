@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 
 export interface formDataInterface {
   username: string,
@@ -40,6 +41,7 @@ function App() {
   }
 
   return (
+    <>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>name</label>
         <input type='text' name='name' onChange={handleChange} />
@@ -55,6 +57,11 @@ function App() {
 
         <input type='submit' value='submit' />
       </form>
+
+      <Link to="/test" activeProps={{className: 'font-bold'}} activeOptions={{ exact: true }}>
+        Home
+      </Link>
+    </>
   )
 }
 

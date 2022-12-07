@@ -30,10 +30,14 @@ class RegisterController extends AbstractController
                 }
 
                 $user = (new User())->setUsername($name)->setEmail($email)->setPassword($password, true);
-                $id = $userManager->insertUser($user);
+                $userManager->insertUser($user);
 
-        //         $_COOKIE['id'] = $id;
+                $token = $userManager->generateJWT(['alg' => 'HS256', 'typ' => 'JWT'], ['email' => $name, 'password' => $password]);
+                $_COOKIE['token'] = $token;
                 exit;
+
+                // AJOUTER ENTITY, INTERFACES, MANAGER POUR TOKEN ET COMPLETER INTERFACES ET BLOQUER LE USER SI LE TOKEN EST PAS BON
+
             } else {
                 echo "les mots de passe ne corresponde pas";
                 exit;
