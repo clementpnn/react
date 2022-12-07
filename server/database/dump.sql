@@ -3,8 +3,7 @@ CREATE TABLE IF NOT EXISTS User
   id        INT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username  VARCHAR(255) NOT NULL,
   password  VARCHAR(255) NOT NULL,
-  email     VARCHAR(255) NOT NULL,
-  admin     INT          NOT NULL
+  email     VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Post

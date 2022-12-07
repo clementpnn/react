@@ -9,33 +9,33 @@ export interface formDataInterface {
 
 function App() {
 
-  const [formData, setFormData] = useState<formDataInterface>({username: '', email: '', password: '', passwordConfirm: ''})
+  const [formData, setFormData] = useState<formDataInterface>({name: '', email: '', password: '', passwordConfirm: ''})
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     fetch('http://localhost:1234', {
-        method: "POST",
-        mode: "cors",
-        body: new URLSearchParams({
-            ...formData
-        }),
-        credentials: "include",
-        headers: new Headers({
-            // "Authorization" : "Basic amZnbWFpbC5jb206cGFzc3dvcmQ=",
-            "Content-type":  "application/x-www-form-urlencoded"
-        })
+      method: 'POST',
+      mode: 'cors',
+      body: new URLSearchParams({
+        ...formData
+      }),
+      credentials: 'include',
+      headers: new Headers({
+        // 'Authorization' : 'Basic amZnbWFpbC5jb206cGFzc3dvcmQ=',
+        'Content-type':  'application/x-www-form-urlencoded'
+      })
     })
-        .then(data => data.text())
-        .then(json => console.log(json))
+      .then(data => data.text())
+      .then(json => console.log(json))
   }
 
   const handleChange = (e: ChangeEvent) => {
     setFormData(prevState => {
-        return {
-            ...prevState,
-            [e.target.name]: e.target.value
-        }
+      return {
+        ...prevState,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
@@ -53,7 +53,7 @@ function App() {
         <label htmlFor='passwordConfirm'>password confirm</label>
         <input type='password' name='passwordConfirm' onChange={handleChange} />
 
-        <input type="submit" value="submit" />
+        <input type='submit' value='submit' />
       </form>
   )
 }

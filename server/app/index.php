@@ -6,13 +6,13 @@ header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: authorization");
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     die;
 }
 
-require_once 'vendor/autoload.php';
+require_once "vendor/autoload.php";
 
-$controllerDir = dirname(__FILE__) . '/src/Controller';
+$controllerDir = dirname(__FILE__) . "/src/Controller";
 $dirs = scandir($controllerDir);
 $controllers = [];
 

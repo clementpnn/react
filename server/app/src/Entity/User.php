@@ -88,17 +88,17 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
         return $this;
     }
 
-    // /**
-    //  * @param string $plainPwd
-    //  * @param string $Pwd
-    //  * @return bool
-    //  */
-    // public function passwordMatch(string $plainPwd, string $Pwd): bool
-    // {   
-    //     if (password_verify($plainPwd, $Pwd)) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    /**
+     * @param string $plainPwd
+     * @param string $Pwd
+     * @return bool
+     */
+    public function passwordMatch(string $plainPwd, string $Pwd): bool
+    {   
+        if (password_verify($plainPwd, $Pwd)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

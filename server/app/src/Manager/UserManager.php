@@ -69,7 +69,9 @@ class UserManager extends BaseManager
         $data = $query->fetch();
 
         if($data) {
-          return true;
+            return true;
+        } else {
+            return false;
         }
     }
 

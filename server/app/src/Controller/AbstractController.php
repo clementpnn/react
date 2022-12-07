@@ -15,9 +15,7 @@ abstract class AbstractController
     public function renderJson(array $args = [])
     {
         header("Content-Type: application/json");
-
         echo json_encode($args);
-
         exit;
     }
 }
