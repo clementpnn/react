@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 
 export interface formDataInterface {
-  username: string,
+  name: string,
   email: string,
   password: string,
   passwordConfirm: string
@@ -35,6 +35,7 @@ function App() {
     setFormData(prevState => {
       return {
         ...prevState,
+        // @ts-ignore
         [e.target.name]: e.target.value
       }
     })

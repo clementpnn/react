@@ -111,7 +111,7 @@ class UserManager extends BaseManager
      * @param string $payload
      * @return string
      */
-    public function generateJWT(array $header, string $payload): string
+    public function generateJWT(array $header, array $payload): string
     {
         $headerEncode = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode(json_encode($header)));
 
