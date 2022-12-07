@@ -1,0 +1,13 @@
+# dependencies
+app/node_modules/
+app/vendor/
+
+# logs
+app/pnpm-debug.log*
+
+# environment variables
+app/.env
+app/.env.production
+
+# macOS-specific files
+app/.DS_Store
