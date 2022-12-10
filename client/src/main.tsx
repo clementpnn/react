@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import {Outlet, RouterProvider, createReactRouter, createRouteConfig, Link,} from '@tanstack/react-router'
+import {RouterProvider, createReactRouter, createRouteConfig} from '@tanstack/react-router'
 import App from './App'
 import Test from './test'
 

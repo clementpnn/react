@@ -36,7 +36,7 @@ class RegisterController extends AbstractController
                 $_COOKIE['token'] = $token;
                 exit;
 
-                // AJOUTER ENTITY, INTERFACES, MANAGER POUR TOKEN ET COMPLETER INTERFACES ET BLOQUER LE USER SI LE TOKEN EST PAS BON
+                // AJOUTER ENTITY, INTERFACES, MANAGER POUR TOKEN ET COMPLETER INTERFACES ET BLOQUER LE USER SI LE TOKEN EST PAS BON ET VIDEO JWT 1H03
 
             } else {
                 echo "les mots de passe ne corresponde pas";

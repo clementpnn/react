@@ -12,6 +12,7 @@ abstract class AbstractController
         call_user_func_array([$this, $action], $params);
     }
 
+    // FAIRE UN DEUXIEME RENDER POUR OBLiGER LE JWT TOKEN VALID
     public function renderJson(array $args = [])
     {
         header("Content-Type: application/json");

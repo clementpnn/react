@@ -1,4 +1,4 @@
-# 🎉 Welcome to [blogy](https://github.com/clementpnn/blogy)
+# 🎉 Welcome to [theBloug](https://github.com/clementpnn/react)
 
 <!-- ![](./app/src/images/forReadme.png) -->
 
