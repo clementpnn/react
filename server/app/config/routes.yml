@@ -5,76 +5,16 @@ register:
     methods:
       - POST
 
-register:
+addPost:
     path: /addpost
     controller: App\Controller\AddPostController
     action: addPost
     methods:
       - POST
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# post:
-#     path: /post
-#     controller: App\Controller\PostController
-#     action: post
-#     methods:
-#         - GET
-
-# postId:
-#     path: /postId/{id}
-#     controller: App\Controller\PostIdController
-#     action: postId
-#     methods:
-#         - GET
-#         - POST
-
-# login:
-#     path: /
-#     controller: App\Controller\SecurityController
-#     action: login
-#     methods:
-#         - GET
-#         - POST
-
-# signin:
-#     path: /signin
-#     controller: App\Controller\SigninController
-#     action: signin
-#     methods:
-#         - GET
-#         - POST
-
-# addPost:
-#     path: /addPost
-#     controller: App\Controller\AddPostController
-#     action: addPost
-#     methods:
-#         - GET
-#         - POST
-
-# admin:
-#     path: /admin
-#     controller: App\Controller\AdminController
-#     action: admin
-#     methods:
-#         - GET
-#         - POST
+post:
+    path: /post
+    controller: App\Controller\PostController
+    action: post
+    methods:
+        - GET
