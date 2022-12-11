@@ -11,6 +11,7 @@ export interface formDataInterface {
 function App() {
 
   const [formData, setFormData] = useState<formDataInterface>({name: '', email: '', password: '', passwordConfirm: ''})
+  const [post, setPost] = useState<boolean>(false)
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,25 +44,43 @@ function App() {
 
   return (
     <>
+      <h2>Inscription</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>name</label>
-        <input type='text' name='name' onChange={handleChange} />
+        <input type='text' name='name' onChange={handleChange} required />
 
         <label htmlFor='email'>email</label>
-        <input type='email' name='email' onChange={handleChange} />
+        <input type='email' name='email' onChange={handleChange} required />
 
         <label htmlFor='password'>password</label>
-        <input type='password' name='password' onChange={handleChange} />
+        <input type='password' name='password' onChange={handleChange} required />
 
         <label htmlFor='passwordConfirm'>password confirm</label>
-        <input type='password' name='passwordConfirm' onChange={handleChange} />
+        <input type='password' name='passwordConfirm' onChange={handleChange} required />
 
-        <input type='submit' value='submit' />
+        <input type='submit' value='submit' onClick={() => setPost(true)} />
       </form>
 
-      <Link to="/test" activeProps={{className: 'font-bold'}} activeOptions={{ exact: true }}>
-        Home
-      </Link>
+      <br />
+      <br />
+
+      <h2>Connection</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='email'>email</label>
+        <input type='email' name='email' onChange={handleChange} required />
+
+        <label htmlFor='password'>password</label>
+        <input type='password' name='password' onChange={handleChange} required />
+
+        <input type='submit' value='submit' onClick={() => setPost(true)} />
+      </form>
+
+      <br />
+      <br />
+
+      {post &&
+        <Link to="/post" activeOptions={{ exact: true }}>Post</Link>
+      }
     </>
   )
 }

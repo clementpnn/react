@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import {RouterProvider, createReactRouter, createRouteConfig} from '@tanstack/react-router'
 import App from './App'
-import Test from './test'
+import Post from './post'
+import AddPost from './addPost'
 
 const rootRoute = createRouteConfig()
 
@@ -14,18 +15,28 @@ const indexRoute = rootRoute.createRoute({
   },
 })
 
-const testRoute = rootRoute.createRoute({
-  path: '/test',
+const postRoute = rootRoute.createRoute({
+  path: '/post',
   component: () => {
     return (
-      <Test />
+      <Post />
+    )
+  },
+})
+
+const addPostRoute = rootRoute.createRoute({
+  path: '/addpost',
+  component: () => {
+    return (
+      <AddPost />
     )
   },
 })
 
 const routeConfig = rootRoute.addChildren([
   indexRoute,
-  testRoute
+  postRoute,
+  addPostRoute
 ])
 
 const router = createReactRouter({

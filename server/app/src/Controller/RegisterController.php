@@ -19,8 +19,6 @@ class RegisterController extends AbstractController
 
         if (!empty($name) && !empty($email) && !empty($password) && !empty($passwordConfirm)) {
             if ($password === $passwordConfirm) {
-                
-                echo "on est bon";
 
                 $userManager = new UserManager(new PDOFactory());
 
@@ -32,14 +30,34 @@ class RegisterController extends AbstractController
                 $user = (new User())->setUsername($name)->setEmail($email)->setPassword($password, true);
                 $userManager->insertUser($user);
 
-                $token = $userManager->generateJWT(['alg' => 'HS256', 'typ' => 'JWT'], ['email' => $name, 'password' => $password]);
-                $_COOKIE['token'] = $token;
+                // $token = $userManager->generateJWT(['alg' => 'HS256', 'typ' => 'JWT'], ['email' => $email, 'password' => $password]);
+                // $_COOKIE['token'] = $token;
+                echo "insciption ok";
                 exit;
-
-                // AJOUTER ENTITY, INTERFACES, MANAGER POUR TOKEN ET COMPLETER INTERFACES ET BLOQUER LE USER SI LE TOKEN EST PAS BON ET VIDEO JWT 1H03
 
             } else {
                 echo "les mots de passe ne corresponde pas";
+                exit;
+            }
+        }
+
+        if (!empty($email) && !empty($password)) {
+
+            $userManager = new UserManager(new PDOFactory());
+
+            $data = $userManager->getPwd($email);
+
+            $user = (new User())->setId($data['id']);
+
+            if (!$user) {
+                echo "l'utilisateur n'existe pas";
+                exit;
+            }
+
+            if ($user->passwordMatch($password, $data['password'])) {
+                // $token = $userManager->generateJWT(['alg' => 'HS256', 'typ' => 'JWT'], ['email' => $email, 'password' => $password]);
+                // $_COOKIE['token'] = $token;
+                echo "connection ok";
                 exit;
             }
         }

@@ -5,6 +5,12 @@ register:
     methods:
       - POST
 
+register:
+    path: /addpost
+    controller: App\Controller\AddPostController
+    action: addPost
+    methods:
+      - POST
 
 
 
